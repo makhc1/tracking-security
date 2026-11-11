@@ -1,0 +1,42 @@
+name: Sync Threat Telemetry (20m)
+
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-telemetry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: pip install -r pipeline/requirements.txt
+
+      - name: Run Intelligence Pipeline
+        env:
+          CF_RADAR_TOKEN: ${{ secrets.CF_RADAR_TOKEN }}
+          ABUSEIPDB_KEY: ${{ secrets.ABUSEIPDB_KEY }}
+        run: python pipeline/build_feeds.py
+
+      - name: Deploy Data to Orphan Branch (telemetry-data)
+        run: |
+          git config user.name "garuda-sentinel-bot"
+          git config user.email "bot@garuda-sentinel.local"
+          git checkout --orphan temp-telemetry
+          git rm -rf --cached .
+          git add data/summary.json data/events.json data/blocklist.txt data/blocklist.csv data/blocklist-mikrotik.rsc
+          git commit -m "chore(telemetry): sync threat feed $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git branch -M temp-telemetry telemetry-data
+          git push origin telemetry-data --force

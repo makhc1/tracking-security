@@ -1,0 +1,225 @@
+{
+  "updated_at": "2026-11-11T05:58:43Z",
+  "status": "LIVE_FEED_ONLINE",
+  "sources": [
+    "SANS ISC/DShield (Live Scanner Sensor)",
+    "abuse.ch Feodo Tracker (Botnet C2)",
+    "CINS Army Cyber Threat Intelligence",
+    "Cloudflare Radar (ID Inbound)"
+  ],
+  "top_attack_origins": [
+    {
+      "country": "CN",
+      "name": "China",
+      "count": 1929
+    },
+    {
+      "country": "RU",
+      "name": "Rusia",
+      "count": 1484
+    },
+    {
+      "country": "US",
+      "name": "Amerika Serikat",
+      "count": 1335
+    },
+    {
+      "country": "GB",
+      "name": "Inggris",
+      "count": 593
+    },
+    {
+      "country": "NL",
+      "name": "Belanda",
+      "count": 445
+    },
+    {
+      "country": "PL",
+      "name": "Polandia",
+      "count": 296
+    },
+    {
+      "country": "ES",
+      "name": "Spanyol",
+      "count": 148
+    },
+    {
+      "country": "DE",
+      "name": "Jerman",
+      "count": 148
+    }
+  ],
+  "attack_types": [
+    {
+      "type": "brute-force",
+      "label": "Brute force",
+      "share": 0.6
+    },
+    {
+      "type": "ddos",
+      "label": "DDoS",
+      "share": 0.3
+    },
+    {
+      "type": "botnet-c2",
+      "label": "Botnet C2",
+      "share": 0.1
+    },
+    {
+      "type": "scan",
+      "label": "Pemindaian port",
+      "share": 0.22
+    },
+    {
+      "type": "malware-url",
+      "label": "URL malware",
+      "share": 0.09
+    }
+  ],
+  "trend_24h": [
+    {
+      "ts": "2026-11-10T06:00:00Z",
+      "value": 335,
+      "hour": "13:00",
+      "intensity": 79
+    },
+    {
+      "ts": "2026-11-10T07:00:00Z",
+      "value": 325,
+      "hour": "14:00",
+      "intensity": 77
+    },
+    {
+      "ts": "2026-11-10T08:00:00Z",
+      "value": 311,
+      "hour": "15:00",
+      "intensity": 74
+    },
+    {
+      "ts": "2026-11-10T09:00:00Z",
+      "value": 292,
+      "hour": "16:00",
+      "intensity": 69
+    },
+    {
+      "ts": "2026-11-10T10:00:00Z",
+      "value": 272,
+      "hour": "17:00",
+      "intensity": 64
+    },
+    {
+      "ts": "2026-11-10T11:00:00Z",
+      "value": 211,
+      "hour": "18:00",
+      "intensity": 50
+    },
+    {
+      "ts": "2026-11-10T12:00:00Z",
+      "value": 193,
+      "hour": "19:00",
+      "intensity": 45
+    },
+    {
+      "ts": "2026-11-10T13:00:00Z",
+      "value": 178,
+      "hour": "20:00",
+      "intensity": 42
+    },
+    {
+      "ts": "2026-11-10T14:00:00Z",
+      "value": 168,
+      "hour": "21:00",
+      "intensity": 40
+    },
+    {
+      "ts": "2026-11-10T15:00:00Z",
+      "value": 165,
+      "hour": "22:00",
+      "intensity": 39
+    },
+    {
+      "ts": "2026-11-10T16:00:00Z",
+      "value": 130,
+      "hour": "23:00",
+      "intensity": 30
+    },
+    {
+      "ts": "2026-11-10T17:00:00Z",
+      "value": 141,
+      "hour": "00:00",
+      "intensity": 33
+    },
+    {
+      "ts": "2026-11-10T18:00:00Z",
+      "value": 160,
+      "hour": "01:00",
+      "intensity": 38
+    },
+    {
+      "ts": "2026-11-10T19:00:00Z",
+      "value": 186,
+      "hour": "02:00",
+      "intensity": 44
+    },
+    {
+      "ts": "2026-11-10T20:00:00Z",
+      "value": 217,
+      "hour": "03:00",
+      "intensity": 51
+    },
+    {
+      "ts": "2026-11-10T21:00:00Z",
+      "value": 211,
+      "hour": "04:00",
+      "intensity": 50
+    },
+    {
+      "ts": "2026-11-10T22:00:00Z",
+      "value": 248,
+      "hour": "05:00",
+      "intensity": 59
+    },
+    {
+      "ts": "2026-11-10T23:00:00Z",
+      "value": 284,
+      "hour": "06:00",
+      "intensity": 67
+    },
+    {
+      "ts": "2026-11-11T00:00:00Z",
+      "value": 319,
+      "hour": "07:00",
+      "intensity": 75
+    },
+    {
+      "ts": "2026-11-11T01:00:00Z",
+      "value": 349,
+      "hour": "08:00",
+      "intensity": 83
+    },
+    {
+      "ts": "2026-11-11T02:00:00Z",
+      "value": 335,
+      "hour": "09:00",
+      "intensity": 79
+    },
+    {
+      "ts": "2026-11-11T03:00:00Z",
+      "value": 354,
+      "hour": "10:00",
+      "intensity": 84
+    },
+    {
+      "ts": "2026-11-11T04:00:00Z",
+      "value": 366,
+      "hour": "11:00",
+      "intensity": 87
+    },
+    {
+      "ts": "2026-11-11T05:00:00Z",
+      "value": 370,
+      "hour": "12:00",
+      "intensity": 88
+    }
+  ]
+}

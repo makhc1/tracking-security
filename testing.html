@@ -1,0 +1,694 @@
+<title>Indonesia Threat Watch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: peta titik Indonesia di kiri, ringkasan di kanan; di bawahnya tren, asal, jenis, lalu feed IP.
+   Warna: slate kebiruan dengan satu aksen hijau laut. Merah/kuning hanya untuk tingkat risiko. */
+:root{
+  --font-display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --font-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-data:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --bg:#0D1217;
+  --surface:#131A21;
+  --surface-2:#18212A;
+  --line:#243039;
+  --fg:#E6ECF0;
+  --fg-2:#9AA8B3;
+  --fg-3:#7A8895;
+  --accent:#62C3B1;
+  --accent-ink:#06201B;
+  --dot:#1F2B34;
+  --warn:#E0A64B;
+  --crit:#E8727C;
+  --c1:#62C3B1;--c2:#6FA8E8;--c3:#E0A64B;--c4:#D98BB0;--c5:#A79BE0;--c6:#8FA0AD;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F2F5F7;--surface:#FFFFFF;--surface-2:#F7F9FA;--line:#DCE3E8;
+    --fg:#121A20;--fg-2:#4A5963;--fg-3:#66747F;
+    --accent:#0E7C6B;--accent-ink:#FFFFFF;--dot:#D5DDE3;
+    --warn:#9A6410;--crit:#B3303C;
+    --c1:#0E7C6B;--c2:#2563B8;--c3:#B27A12;--c4:#B2437A;--c5:#6A55C2;--c6:#5E707D;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F2F5F7;--surface:#FFFFFF;--surface-2:#F7F9FA;--line:#DCE3E8;
+  --fg:#121A20;--fg-2:#4A5963;--fg-3:#66747F;
+  --accent:#0E7C6B;--accent-ink:#FFFFFF;--dot:#D5DDE3;
+  --warn:#9A6410;--crit:#B3303C;
+  --c1:#0E7C6B;--c2:#2563B8;--c3:#B27A12;--c4:#B2437A;--c5:#6A55C2;--c6:#5E707D;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-body);font-size:14px;line-height:1.5;
+  padding-block:20px 36px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.page{max-width:1180px;margin-inline:auto;display:grid;gap:16px}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand svg{flex:none}
+.brand h1{margin:0;font-family:var(--font-display);font-size:1.35rem;line-height:1.2;font-weight:700;letter-spacing:-.01em}
+.brand p{margin:0;color:var(--fg-2);font-size:.86rem}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;color:var(--fg-2);font-size:.85rem}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:3px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg-2);font-weight:500}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--warn)}
+.badge.live::before{background:var(--accent)}
+
+/* panels */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
+.panel h2{margin:0;font-family:var(--font-display);font-size:1.02rem;font-weight:600;letter-spacing:-.005em}
+.panel-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin-bottom:12px}
+.hint{margin:0;color:var(--fg-3);font-size:.8rem}
+
+.top-grid{display:grid;grid-template-columns:minmax(0,1fr) 288px;gap:16px}
+.mid-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:1040px){
+  .mid-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .mid-grid .trend{grid-column:1/-1}
+}
+@media (max-width:920px){.top-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.mid-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* map */
+.mapbox{position:relative}
+.map{display:block;width:100%;height:auto}
+.land{fill:var(--dot)}
+.arc-base{fill:none;stroke:var(--accent);stroke-opacity:.2;stroke-linecap:round}
+.arc-flow{fill:none;stroke:var(--accent);stroke-linecap:round;stroke-dasharray:9 91;animation:flow 3.4s linear infinite}
+@keyframes flow{from{stroke-dashoffset:9}to{stroke-dashoffset:-91}}
+.hub{fill:var(--accent)}
+.pulse{fill:none;stroke:var(--accent);stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}
+@keyframes pulse{from{transform:scale(1);opacity:.55}to{transform:scale(3.4);opacity:0}}
+.chip{
+  position:absolute;transform:translate(-50%,-50%);
+  padding:1px 8px;border:1px solid var(--line);border-radius:999px;
+  background:var(--surface);color:var(--fg-2);font-size:.72rem;font-weight:600;line-height:1.6;
+  white-space:nowrap;cursor:default;
+}
+.chip.hub-label{transform:translate(-50%,10px);background:transparent;border-color:transparent;color:var(--accent);font-weight:600;padding:0}
+.map-note{margin:10px 0 0;color:var(--fg-3);font-size:.8rem;max-width:70ch}
+@media (prefers-reduced-motion:reduce){
+  .arc-flow{animation:none;stroke-dasharray:none;stroke-opacity:.35}
+  .pulse{animation:none;opacity:.3;transform:scale(2)}
+}
+
+/* ringkasan */
+.facts{margin:0}
+.total{padding-bottom:14px}
+.total dt{color:var(--fg-2);font-size:.86rem}
+.total dd{margin:2px 0 0;font-family:var(--font-display);font-size:2.3rem;line-height:1.1;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fact{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.fact dt{color:var(--fg-2)}
+.fact dd{margin:0;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.fact dd small{display:block;color:var(--fg-3);font-weight:400;font-size:.78rem}
+
+/* tren */
+.readout{margin:0 0 6px;color:var(--fg-2);font-size:.86rem;font-variant-numeric:tabular-nums;min-height:1.4em}
+.readout strong{color:var(--fg);font-weight:600}
+#trend{width:100%}
+#trend svg{display:block;width:100%;height:auto;touch-action:pan-y}
+.g-line{stroke:var(--line);stroke-width:1}
+.tick{fill:var(--fg-3);font-size:11px;font-family:var(--font-body)}
+.t-line{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.t-end{fill:var(--accent)}
+.t-ring{fill:none;stroke:var(--accent);stroke-opacity:.35;stroke-width:4}
+.cursor{stroke:var(--fg-3);stroke-width:1;stroke-dasharray:3 3}
+
+/* asal & jenis */
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.bars li{display:grid;gap:5px}
+.bars .l{display:flex;justify-content:space-between;gap:12px;font-size:.88rem}
+.bars .l span:last-child{color:var(--fg-2);font-variant-numeric:tabular-nums}
+.track{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.fill{height:100%;border-radius:3px;background:var(--accent)}
+.stack{display:flex;gap:2px;height:10px;margin-bottom:14px}
+.stack i{display:block;min-width:3px;border-radius:2px}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.legend li{display:flex;align-items:center;gap:9px;font-size:.88rem}
+.legend .sw{flex:none;width:9px;height:9px;border-radius:2px}
+.legend .pct{margin-left:auto;color:var(--fg-2);font-variant-numeric:tabular-nums}
+
+/* feed */
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.fchip{padding:3px 12px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--fg-2);cursor:pointer;font-size:.82rem}
+.fchip:hover{border-color:var(--fg-3);color:var(--fg)}
+.fchip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.btn{padding:5px 14px;border:1px solid var(--accent);border-radius:8px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.84rem;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.copy-status{color:var(--fg-2);font-size:.82rem;min-height:1.2em}
+.feed-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin-bottom:12px}
+.tablewrap{overflow-x:auto;border-top:1px solid var(--line)}
+table{width:100%;min-width:720px;border-collapse:collapse}
+th{padding:9px 10px;text-align:left;font-weight:500;font-size:.8rem;color:var(--fg-3);white-space:nowrap}
+td{padding:9px 10px;border-top:1px solid var(--line);white-space:nowrap}
+tbody tr:hover td{background:var(--surface-2)}
+td.ip{font-family:var(--font-data);font-size:.84rem}
+td.muted{color:var(--fg-2)}
+.tcell{display:inline-flex;align-items:center;gap:8px}
+.tcell i{width:8px;height:8px;border-radius:2px;flex:none}
+.score{display:inline-flex;align-items:center;gap:6px;padding:1px 10px;border-radius:999px;font-size:.78rem;font-weight:600;font-variant-numeric:tabular-nums}
+.score.hi{color:var(--crit);background:color-mix(in srgb,var(--crit) 15%,transparent)}
+.score.mid{color:var(--warn);background:color-mix(in srgb,var(--warn) 15%,transparent)}
+.score.lo{color:var(--fg-2);background:var(--surface-2)}
+.empty{padding:20px 4px;color:var(--fg-2)}
+
+/* tentang */
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px 32px}
+.about h3{margin:0 0 8px;font-family:var(--font-display);font-size:.95rem;font-weight:600}
+.about ul{margin:0;padding-left:1.1em;color:var(--fg-2);display:grid;gap:6px;font-size:.88rem;max-width:62ch}
+.about li b{color:var(--fg);font-weight:600}
+</style>
+
+<div class="page">
+  <header class="top">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <g fill="var(--dot)" stroke="var(--line)" stroke-width="1">
+          <circle cx="6" cy="6" r="2.6"/><circle cx="15" cy="6" r="2.6"/><circle cx="24" cy="6" r="2.6"/>
+          <circle cx="6" cy="15" r="2.6"/><circle cx="24" cy="15" r="2.6"/>
+          <circle cx="6" cy="24" r="2.6"/><circle cx="15" cy="24" r="2.6"/><circle cx="24" cy="24" r="2.6"/>
+        </g>
+        <circle cx="15" cy="15" r="3.4" fill="var(--accent)"/>
+      </svg>
+      <div>
+        <h1>Indonesia Threat Watch</h1>
+        <p>Gambaran serangan siber yang menarget Indonesia, dari data publik.</p>
+      </div>
+    </div>
+    <div class="status">
+      <span class="badge" id="mode" title="">Data contoh</span>
+      <span>Diperbarui <time id="updated">-</time></span>
+    </div>
+  </header>
+
+  <div class="top-grid">
+    <section class="panel" aria-labelledby="h-map">
+      <div class="panel-head">
+        <h2 id="h-map">Asal serangan</h2>
+        <p class="hint">Tebal garis mengikuti jumlah kejadian</p>
+      </div>
+      <div class="mapbox" id="mapbox">
+        <svg class="map" id="map" viewBox="0 0 1000 427" role="img" aria-label="Peta titik Indonesia dengan garis dari negara asal serangan menuju Jakarta">
+          <path class="land" id="land" d=""/>
+          <g id="arcs"></g>
+          <g id="hub"></g>
+        </svg>
+      </div>
+      <p class="map-note">Garis berakhir di Jakarta sebagai titik acuan. Data sumber tidak membedakan kota tujuan, jadi posisi tujuan bukan lokasi korban yang sebenarnya.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="h-sum">
+      <div class="panel-head"><h2 id="h-sum">Ringkasan 24 jam</h2></div>
+      <dl class="facts" id="facts"></dl>
+    </section>
+  </div>
+
+  <div class="mid-grid">
+    <section class="panel trend" aria-labelledby="h-trend">
+      <div class="panel-head">
+        <h2 id="h-trend">Kejadian per jam</h2>
+        <p class="hint">Waktu dalam WIB</p>
+      </div>
+      <p class="readout" id="readout" aria-live="polite"></p>
+      <div id="trend"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-orig">
+      <div class="panel-head"><h2 id="h-orig">Negara asal terbanyak</h2></div>
+      <ul class="bars" id="origins"></ul>
+    </section>
+
+    <section class="panel" aria-labelledby="h-type">
+      <div class="panel-head"><h2 id="h-type">Jenis serangan</h2></div>
+      <div class="stack" id="stack" role="img" aria-label="Proporsi jenis serangan"></div>
+      <ul class="legend" id="legend"></ul>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="h-feed">
+    <div class="feed-bar">
+      <div>
+        <h2 id="h-feed">IP terbaru dari feed</h2>
+        <p class="hint" id="feed-count"></p>
+      </div>
+      <div class="tools">
+        <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+        <button type="button" class="btn" id="copy">Salin blocklist</button>
+      </div>
+    </div>
+    <div class="chips" id="filters" style="margin-bottom:12px" role="group" aria-label="Filter jenis serangan"></div>
+    <div class="tablewrap">
+      <table aria-label="Daftar IP berbahaya terbaru">
+        <thead>
+          <tr><th>Waktu</th><th>IP</th><th>Asal</th><th>ASN</th><th>Jenis</th><th>Sumber</th><th>Skor reputasi</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-about">
+    <div class="panel-head"><h2 id="h-about">Tentang data</h2></div>
+    <div class="about">
+      <div>
+        <h3>Sumber</h3>
+        <ul>
+          <li><b>Cloudflare Radar</b> untuk tren serangan DDoS dan lapisan 7 ke Indonesia.</li>
+          <li><b>abuse.ch</b> (URLhaus, Feodo Tracker, ThreatFox) untuk indikator malware dan server komando botnet.</li>
+          <li><b>SANS ISC/DShield</b> dan <b>AlienVault OTX</b> untuk IP pemindai dan brute force.</li>
+          <li><b>AbuseIPDB</b> dan <b>GreyNoise Community</b> untuk skor reputasi.</li>
+          <li><b>MaxMind GeoLite2</b> untuk negara dan ASN dari alamat IP.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Cara membaca</h3>
+        <ul>
+          <li>Ini sampel dan agregat dari pihak ketiga, bukan seluruh serangan ke Indonesia.</li>
+          <li>Negara asal berasal dari GeoIP. Pelaku sering memakai proxy, VPN, atau server yang sudah dibobol.</li>
+          <li>Satu IP bisa saja perangkat korban. Periksa dulu sebelum memblokir permanen.</li>
+          <li id="demo-note">Halaman ini sedang menampilkan data contoh. Alamat IP memakai rentang dokumentasi (RFC 5737), jadi bukan IP sungguhan.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* Ganti ke true setelah pipeline menulis data/summary.json dan data/events.json */
+var LIVE_DATA = false;
+
+/* ---------- Geometri peta (kasar, digambar tangan) ----------
+   Ganti dengan GeoJSON Natural Earth kalau butuh garis pantai yang akurat. */
+//GEO-START
+var POLYS = [
+  /* Sumatra */
+  [[95.3,5.6],[97.0,5.4],[98.2,4.1],[99.8,3.2],[100.9,2.3],[102.0,1.7],[103.2,0.9],[103.9,-0.4],[104.4,-1.1],[104.9,-2.4],[105.9,-3.2],[105.8,-5.0],[105.8,-5.9],[104.7,-5.9],[103.6,-5.2],[102.4,-4.1],[101.4,-2.9],[100.5,-1.5],[99.7,-0.4],[98.9,0.9],[98.1,2.0],[97.2,3.4],[96.2,4.6]],
+  /* Jawa */
+  [[105.2,-6.8],[106.0,-5.9],[106.8,-6.0],[108.3,-6.3],[110.4,-6.9],[112.6,-6.8],[114.4,-7.7],[114.3,-8.7],[112.0,-8.3],[110.0,-8.0],[108.0,-7.8],[106.5,-7.4]],
+  /* Kalimantan */
+  [[109.0,0.0],[109.6,1.9],[110.8,1.5],[112.0,1.6],[113.8,1.5],[115.5,2.4],[116.5,4.2],[117.7,4.2],[117.9,2.8],[117.5,1.2],[117.5,-0.3],[116.8,-1.4],[116.3,-2.5],[116.0,-3.9],[114.6,-4.0],[113.0,-3.4],[111.4,-3.3],[110.2,-3.0],[110.0,-1.7],[109.1,-0.8]],
+  /* Papua */
+  [[130.9,-0.8],[132.6,-0.4],[134.0,-0.8],[134.8,-1.2],[136.5,-2.2],[138.0,-1.6],[139.5,-2.4],[141.0,-2.6],[141.0,-9.1],[139.8,-8.2],[138.0,-8.4],[137.8,-7.2],[136.5,-5.6],[135.0,-4.1],[134.0,-3.4],[132.8,-4.0],[132.6,-3.0],[131.9,-2.5],[131.0,-1.5]]
+];
+var CHAINS = [
+  /* Sulawesi */
+  [[[125.1,1.6],[124.0,1.0],[122.0,0.9],[120.3,1.0]],0.45],
+  [[[120.3,1.0],[120.0,-0.8],[120.5,-2.5],[120.1,-3.5]],0.55],
+  [[[120.1,-3.5],[119.7,-4.5],[119.6,-5.5],[120.3,-5.5]],0.55],
+  [[[120.5,-2.5],[121.8,-2.9],[122.3,-4.0],[122.6,-4.8]],0.5],
+  [[[120.8,-1.0],[122.2,-0.9],[123.3,-1.3]],0.4],
+  /* Maluku */
+  [[[127.8,1.8],[128.0,0.5],[128.2,-0.7]],0.5],
+  [[[128.0,-3.0],[129.5,-3.1],[130.5,-3.3]],0.4],
+  [[[126.5,-3.4],[126.6,-3.4]],0.6],
+  [[[131.0,-7.5],[131.7,-7.8]],0.4],
+  /* Nusa Tenggara */
+  [[[114.5,-8.3],[115.5,-8.3],[116.2,-8.5],[117.0,-8.6],[118.0,-8.6],[119.0,-8.7]],0.35],
+  [[[119.9,-8.5],[121.5,-8.6],[123.0,-8.4]],0.35],
+  [[[119.2,-9.6],[120.5,-9.9]],0.4],
+  [[[123.6,-10.0],[125.0,-9.6]],0.5],
+  /* Bangka, Belitung, Batam */
+  [[[105.8,-1.8],[106.5,-2.5]],0.4],
+  [[[107.9,-2.8],[108.0,-2.8]],0.4],
+  [[[104.0,1.1],[104.1,1.0]],0.3]
+];
+function inPoly(lon,lat,poly){
+  var inside=false;
+  for(var i=0,j=poly.length-1;i<poly.length;j=i++){
+    var xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
+    if(((yi>lat)!==(yj>lat)) && (lon<(xj-xi)*(lat-yi)/(yj-yi)+xi)) inside=!inside;
+  }
+  return inside;
+}
+function segDist(px,py,a,b){
+  var dx=b[0]-a[0],dy=b[1]-a[1],l2=dx*dx+dy*dy;
+  var t=l2?((px-a[0])*dx+(py-a[1])*dy)/l2:0;
+  t=Math.max(0,Math.min(1,t));
+  var cx=a[0]+t*dx,cy=a[1]+t*dy;
+  return Math.sqrt((px-cx)*(px-cx)+(py-cy)*(py-cy));
+}
+function isLand(lon,lat){
+  var i,k;
+  for(i=0;i<POLYS.length;i++) if(inPoly(lon,lat,POLYS[i])) return true;
+  for(i=0;i<CHAINS.length;i++){
+    var pts=CHAINS[i][0],r=CHAINS[i][1];
+    for(k=0;k<pts.length-1;k++) if(segDist(lon,lat,pts[k],pts[k+1])<=r) return true;
+  }
+  return false;
+}
+function landDots(lon0,lon1,lat0,lat1,step){
+  var out=[];
+  for(var lat=lat0;lat>=lat1;lat-=step){
+    for(var lon=lon0;lon<=lon1;lon+=step){
+      if(isLand(lon,lat)) out.push([lon,lat]);
+    }
+  }
+  return out;
+}
+//GEO-END
+
+/* ---------- Konstanta tampilan ---------- */
+var W=1000,H=427,LON0=94,LON1=142,LAT0=9,LAT1=-11.5;
+function px(lon){return (lon-LON0)/(LON1-LON0)*W;}
+function py(lat){return (LAT0-lat)/(LAT0-LAT1)*H;}
+var HUB={x:px(106.85),y:py(-6.2)};
+
+var TYPES={
+  'ddos':{label:'DDoS',c:'var(--c1)'},
+  'brute-force':{label:'Brute force',c:'var(--c2)'},
+  'scan':{label:'Pemindaian port',c:'var(--c3)'},
+  'botnet-c2':{label:'Botnet C2',c:'var(--c4)'},
+  'malware-url':{label:'URL malware',c:'var(--c5)'},
+  'defacement':{label:'Defacement',c:'var(--c6)'}
+};
+var COUNTRIES={CN:'China',US:'Amerika Serikat',RU:'Rusia',IN:'India',SG:'Singapura',VN:'Vietnam',NL:'Belanda',DE:'Jerman',KR:'Korea Selatan'};
+var SOURCES={'cloudflare-radar':'Cloudflare Radar','feodo-tracker':'Feodo Tracker','urlhaus':'URLhaus','otx':'AlienVault OTX','dshield':'SANS ISC/DShield','abuseipdb':'AbuseIPDB'};
+/* posisi chip negara pada kanvas peta (koordinat viewBox 1000x427) */
+var ORIGIN_POS={
+  CN:{x:410,y:18},RU:{x:560,y:18},VN:{x:225,y:18},KR:{x:700,y:18},DE:{x:90,y:18},NL:{x:130,y:60},
+  IN:{x:30,y:200},US:{x:966,y:140},SG:{x:204,y:159}
+};
+
+/* ---------- Util ---------- */
+function $(s){return document.querySelector(s);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var nf=new Intl.NumberFormat('id-ID');
+var tf=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Jakarta'});
+var hf=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',hour12:false,timeZone:'Asia/Jakarta'});
+function fmtTime(d){return tf.format(d);}
+function fmtHour(d){return hf.format(d)+':00';}
+function typeInfo(k){return TYPES[k]||{label:k,c:'var(--c6)'};}
+function ago(ts){
+  var m=Math.round((Date.now()-new Date(ts).getTime())/60000);
+  if(m<1) return 'baru saja';
+  if(m<60) return m+' mnt lalu';
+  var h=Math.floor(m/60),r=m%60;
+  return h+' j'+(r?' '+r+' m':'')+' lalu';
+}
+
+/* ---------- Data contoh ---------- */
+function makeDemo(){
+  var now=Date.now();
+  var hour=3600000;
+  var base=Math.floor(now/hour)*hour;
+  var seed=7;
+  function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+  var origins=[['CN',2140],['US',1630],['RU',1180],['IN',870],['SG',640],['VN',520],['NL',410],['DE',330]];
+  var target=origins.reduce(function(a,o){return a+o[1];},0);
+  var raw=[],sum=0,i;
+  for(i=23;i>=0;i--){
+    var d=new Date(base-i*hour);
+    var h=(d.getUTCHours()+7)%24;
+    var v=230+95*Math.sin((h-4)/24*Math.PI*2)+rnd()*60;
+    raw.push(v);sum+=v;
+  }
+  var trend=raw.map(function(v,idx){
+    return {ts:new Date(base-(23-idx)*hour).toISOString(),value:Math.round(v/sum*target)};
+  });
+  var ev=[
+    [3,'203.0.113.24','RU','AS64496','botnet-c2','feodo-tracker',96],
+    [9,'198.51.100.77','CN','AS64497','brute-force','dshield',88],
+    [14,'192.0.2.140','US','AS64498','scan','dshield',41],
+    [22,'203.0.113.9','VN','AS64499','malware-url','urlhaus',72],
+    [31,'198.51.100.12','CN','AS64500','ddos','abuseipdb',91],
+    [40,'192.0.2.58','IN','AS64501','brute-force','abuseipdb',64],
+    [52,'203.0.113.201','NL','AS64502','scan','otx',37],
+    [66,'198.51.100.230','US','AS64503','botnet-c2','feodo-tracker',83],
+    [81,'192.0.2.17','SG','AS64504','brute-force','dshield',58],
+    [97,'203.0.113.63','DE','AS64505','malware-url','urlhaus',69],
+    [118,'198.51.100.5','RU','AS64506','ddos','abuseipdb',94],
+    [140,'192.0.2.222','CN','AS64507','defacement','otx',52]
+  ].map(function(r){
+    return {ts:new Date(now-r[0]*60000).toISOString(),ip:r[1],country:r[2],asn:r[3],type:r[4],source:r[5],abuse_score:r[6]};
+  });
+  return {
+    summary:{
+      updated_at:new Date(now).toISOString(),
+      sources:['cloudflare-radar','feodo-tracker','urlhaus','dshield','abuseipdb'],
+      top_attack_origins:origins.map(function(o){return {country:o[0],count:o[1]};}),
+      attack_types:[{type:'ddos',share:.31},{type:'brute-force',share:.24},{type:'scan',share:.21},{type:'botnet-c2',share:.11},{type:'malware-url',share:.08},{type:'defacement',share:.05}],
+      trend_24h:trend
+    },
+    events:ev
+  };
+}
+
+/* ---------- Render: peta ---------- */
+function drawLand(){
+  var dots=landDots(LON0,LON1,LAT0,LAT1,0.5),r=2.5,d=[];
+  for(var i=0;i<dots.length;i++){
+    var x=px(dots[i][0]).toFixed(1),y=py(dots[i][1]).toFixed(1);
+    d.push('M'+x+' '+y+'m-'+r+' 0a'+r+' '+r+' 0 1 0 '+(r*2)+' 0a'+r+' '+r+' 0 1 0 -'+(r*2)+' 0');
+  }
+  $('#land').setAttribute('d',d.join(''));
+}
+function arcPath(a,b){
+  var mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy)||1;
+  var off=len*0.16,nx=-dy/len*off,ny=dx/len*off;
+  var cx=mx+nx,cy=my+ny;
+  if(cx<0||cx>W||cy<0){cx=mx-nx;cy=my-ny;}
+  return 'M'+a.x.toFixed(1)+' '+a.y.toFixed(1)+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+b.x.toFixed(1)+' '+b.y.toFixed(1);
+}
+function renderMap(origins){
+  var arcs=$('#arcs'),hub=$('#hub'),box=$('#mapbox');
+  Array.prototype.slice.call(box.querySelectorAll('.chip')).forEach(function(n){n.remove();});
+  var max=Math.max.apply(null,origins.map(function(o){return o.count;}).concat([1]));
+  var html='',i=0;
+  origins.forEach(function(o){
+    var p=ORIGIN_POS[o.country];
+    if(!p) return;
+    var w=(1+2.6*o.count/max).toFixed(2);
+    var d=arcPath(p,HUB);
+    html+='<path class="arc-base" pathLength="100" d="'+d+'" stroke-width="'+w+'"/>';
+    html+='<path class="arc-flow" pathLength="100" d="'+d+'" stroke-width="'+w+'" style="animation-delay:'+(-(i*0.55)).toFixed(2)+'s"/>';
+    i++;
+    var chip=document.createElement('span');
+    chip.className='chip';
+    chip.textContent=o.country;
+    chip.title=(COUNTRIES[o.country]||o.country)+': '+nf.format(o.count)+' kejadian';
+    chip.style.left=(p.x/W*100)+'%';
+    chip.style.top=(p.y/H*100)+'%';
+    box.appendChild(chip);
+  });
+  arcs.innerHTML=html;
+  hub.innerHTML='<circle class="pulse" cx="'+HUB.x.toFixed(1)+'" cy="'+HUB.y.toFixed(1)+'" r="6"/><circle class="hub" cx="'+HUB.x.toFixed(1)+'" cy="'+HUB.y.toFixed(1)+'" r="5"/>';
+  var lbl=document.createElement('span');
+  lbl.className='chip hub-label';
+  lbl.textContent='Jakarta';
+  lbl.style.left=(HUB.x/W*100)+'%';
+  lbl.style.top=(HUB.y/H*100)+'%';
+  box.appendChild(lbl);
+}
+
+/* ---------- Render: ringkasan ---------- */
+function renderFacts(s){
+  var trend=s.trend_24h||[];
+  var total=trend.length?trend.reduce(function(a,d){return a+d.value;},0):(s.top_attack_origins||[]).reduce(function(a,o){return a+o.count;},0);
+  var topO=(s.top_attack_origins||[])[0];
+  var types=(s.attack_types||[]).slice().sort(function(a,b){return b.share-a.share;});
+  var topT=types[0];
+  var peak=null;
+  trend.forEach(function(d){if(!peak||d.value>peak.value)peak=d;});
+  var rows='<div class="total"><dt>Kejadian dalam 24 jam</dt><dd>'+nf.format(total)+'</dd></div>';
+  if(topO) rows+='<div class="fact"><dt>Asal terbanyak</dt><dd>'+esc(COUNTRIES[topO.country]||topO.country)+'<small>'+nf.format(topO.count)+' kejadian</small></dd></div>';
+  if(topT) rows+='<div class="fact"><dt>Jenis terbanyak</dt><dd>'+esc(typeInfo(topT.type).label)+'<small>'+Math.round(topT.share*100)+'% dari total</small></dd></div>';
+  if(peak) rows+='<div class="fact"><dt>Jam tersibuk</dt><dd>'+fmtHour(new Date(peak.ts))+' WIB<small>'+nf.format(peak.value)+' kejadian</small></dd></div>';
+  rows+='<div class="fact"><dt>Sumber aktif</dt><dd>'+((s.sources||[]).length)+'</dd></div>';
+  $('#facts').innerHTML=rows;
+}
+
+/* ---------- Render: tren ---------- */
+var trendData=[];
+function niceStep(n){
+  var p=Math.pow(10,Math.floor(Math.log(n)/Math.LN10)),f=n/p;
+  return (f<=1?1:f<=2?2:f<=5?5:10)*p;
+}
+function renderTrend(){
+  var host=$('#trend'),trend=trendData;
+  if(!trend.length){host.innerHTML='';return;}
+  var Wd=Math.max(260,host.clientWidth||600),Hd=190,L=38,R=12,T=10,B=24;
+  var vals=trend.map(function(d){return d.value;});
+  var max=Math.max.apply(null,vals);
+  var step=niceStep(max/3),top=Math.ceil(max/step)*step;
+  var n=vals.length;
+  function x(i){return L+(Wd-L-R)*i/(n-1);}
+  function y(v){return T+(Hd-T-B)*(1-v/top);}
+  var line='',area='',i;
+  for(i=0;i<n;i++){line+=(i?'L':'M')+x(i).toFixed(1)+' '+y(vals[i]).toFixed(1);}
+  area=line+'L'+x(n-1).toFixed(1)+' '+(Hd-B)+'L'+x(0).toFixed(1)+' '+(Hd-B)+'Z';
+  var g='';
+  for(var v=0;v<=top;v+=step){
+    g+='<line class="g-line" x1="'+L+'" x2="'+(Wd-R)+'" y1="'+y(v).toFixed(1)+'" y2="'+y(v).toFixed(1)+'"/>';
+    g+='<text class="tick" x="'+(L-8)+'" y="'+(y(v)+4).toFixed(1)+'" text-anchor="end">'+nf.format(v)+'</text>';
+  }
+  for(i=n-1;i>=0;i-=6){
+    g+='<text class="tick" x="'+x(i).toFixed(1)+'" y="'+(Hd-6)+'" text-anchor="'+(i===n-1?'end':'middle')+'">'+fmtHour(new Date(trend[i].ts))+'</text>';
+  }
+  var lx=x(n-1).toFixed(1),ly=y(vals[n-1]).toFixed(1);
+  host.innerHTML='<svg viewBox="0 0 '+Wd+' '+Hd+'" role="img" aria-label="Grafik jumlah kejadian per jam selama 24 jam terakhir">'
+    +'<defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".26"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>'
+    +g+'<path d="'+area+'" fill="url(#tg)"/><path class="t-line" d="'+line+'"/>'
+    +'<line class="cursor" id="cur" x1="0" x2="0" y1="'+T+'" y2="'+(Hd-B)+'" visibility="hidden"/>'
+    +'<circle class="t-ring" id="ring" cx="'+lx+'" cy="'+ly+'" r="6"/><circle class="t-end" id="dot" cx="'+lx+'" cy="'+ly+'" r="3.5"/>'
+    +'</svg>';
+  var svg=host.firstChild,cur=svg.querySelector('#cur'),dot=svg.querySelector('#dot'),ring=svg.querySelector('#ring');
+  function show(idx,hover){
+    var d=trend[idx];
+    $('#readout').innerHTML='<strong>'+nf.format(d.value)+'</strong> kejadian pada '+fmtHour(new Date(d.ts))+' WIB'+(idx===n-1&&!hover?' (jam ini)':'');
+    var cx=x(idx).toFixed(1),cy=y(d.value).toFixed(1);
+    dot.setAttribute('cx',cx);dot.setAttribute('cy',cy);ring.setAttribute('cx',cx);ring.setAttribute('cy',cy);
+    cur.setAttribute('x1',cx);cur.setAttribute('x2',cx);
+    cur.setAttribute('visibility',hover?'visible':'hidden');
+  }
+  svg.addEventListener('pointermove',function(e){
+    var r=svg.getBoundingClientRect();
+    var sx=(e.clientX-r.left)/r.width*Wd;
+    var idx=Math.round((sx-L)/((Wd-L-R)/(n-1)));
+    show(Math.max(0,Math.min(n-1,idx)),true);
+  });
+  svg.addEventListener('pointerleave',function(){show(n-1,false);});
+  show(n-1,false);
+}
+
+/* ---------- Render: asal & jenis ---------- */
+function renderOrigins(list){
+  var max=Math.max.apply(null,list.map(function(o){return o.count;}).concat([1]));
+  $('#origins').innerHTML=list.slice(0,6).map(function(o){
+    return '<li><div class="l"><span>'+esc(COUNTRIES[o.country]||o.country)+'</span><span>'+nf.format(o.count)+'</span></div>'
+      +'<div class="track"><div class="fill" style="width:'+(o.count/max*100).toFixed(1)+'%"></div></div></li>';
+  }).join('');
+}
+function renderTypes(list){
+  var t=list.slice().sort(function(a,b){return b.share-a.share;});
+  $('#stack').innerHTML=t.map(function(d){
+    return '<i style="flex:'+d.share+' 1 0;background:'+typeInfo(d.type).c+'" title="'+esc(typeInfo(d.type).label)+'"></i>';
+  }).join('');
+  $('#legend').innerHTML=t.map(function(d){
+    return '<li><span class="sw" style="background:'+typeInfo(d.type).c+'"></span><span>'+esc(typeInfo(d.type).label)+'</span><span class="pct">'+Math.round(d.share*100)+'%</span></li>';
+  }).join('');
+}
+
+/* ---------- Render: feed ---------- */
+var events=[],filter='all';
+function visibleEvents(){return events.filter(function(e){return filter==='all'||e.type===filter;});}
+function levelOf(s){
+  if(s==null) return {c:'lo',t:'-'};
+  return s>=80?{c:'hi',t:'Tinggi'}:s>=50?{c:'mid',t:'Sedang'}:{c:'lo',t:'Rendah'};
+}
+function renderFilters(){
+  var present=[];
+  events.forEach(function(e){if(present.indexOf(e.type)<0)present.push(e.type);});
+  var html='<button type="button" class="fchip" data-f="all" aria-pressed="'+(filter==='all')+'">Semua</button>';
+  present.forEach(function(k){
+    html+='<button type="button" class="fchip" data-f="'+esc(k)+'" aria-pressed="'+(filter===k)+'">'+esc(typeInfo(k).label)+'</button>';
+  });
+  $('#filters').innerHTML=html;
+}
+function renderFeed(){
+  var rows=visibleEvents();
+  $('#feed-count').textContent=rows.length+' dari '+events.length+' IP';
+  if(!rows.length){
+    $('#rows').innerHTML='<tr><td colspan="7" class="empty">Belum ada IP untuk jenis ini. Pilih jenis lain atau tunggu pembaruan berikutnya.</td></tr>';
+    return;
+  }
+  $('#rows').innerHTML=rows.map(function(e){
+    var lv=levelOf(e.abuse_score),ti=typeInfo(e.type);
+    return '<tr>'
+      +'<td class="muted" title="'+esc(fmtTime(new Date(e.ts))+' WIB')+'">'+esc(ago(e.ts))+'</td>'
+      +'<td class="ip">'+esc(e.ip)+'</td>'
+      +'<td>'+esc(COUNTRIES[e.country]||e.country||'-')+'</td>'
+      +'<td class="muted">'+esc(e.asn||'-')+'</td>'
+      +'<td><span class="tcell"><i style="background:'+ti.c+'"></i>'+esc(ti.label)+'</span></td>'
+      +'<td class="muted">'+esc(SOURCES[e.source]||e.source||'-')+'</td>'
+      +'<td><span class="score '+lv.c+'">'+(e.abuse_score==null?'-':esc(e.abuse_score)+' '+lv.t)+'</span></td>'
+      +'</tr>';
+  }).join('');
+}
+function say(msg){
+  var s=$('#copy-status');
+  s.textContent=msg;
+  clearTimeout(say.t);
+  say.t=setTimeout(function(){s.textContent='';},3500);
+}
+function copyList(){
+  var rows=visibleEvents();
+  if(!rows.length){say('Tidak ada IP untuk disalin.');return;}
+  var text=rows.map(function(e){return e.ip;}).join('\n');
+  function fallback(){
+    var ta=document.createElement('textarea');
+    ta.value=text;ta.setAttribute('readonly','');
+    ta.style.cssText='position:fixed;left:-9999px;top:0';
+    document.body.appendChild(ta);ta.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(_e){}
+    ta.remove();
+    say(ok?rows.length+' IP disalin.':'Browser menolak menyalin. Salin IP dari tabel secara manual.');
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){say(rows.length+' IP disalin.');},fallback);
+  }else{fallback();}
+}
+
+/* ---------- Muat data ---------- */
+function apply(data,live,note){
+  var s=data.summary;
+  trendData=s.trend_24h||[];
+  events=(data.events||[]).slice().sort(function(a,b){return new Date(b.ts)-new Date(a.ts);});
+  var mode=$('#mode');
+  mode.textContent=live?'Data langsung':'Data contoh';
+  mode.className='badge'+(live?' live':'');
+  mode.title=note||'';
+  $('#demo-note').hidden=!!live;
+  $('#updated').textContent=s.updated_at?fmtTime(new Date(s.updated_at))+' WIB':'-';
+  renderMap(s.top_attack_origins||[]);
+  renderFacts(s);
+  renderOrigins(s.top_attack_origins||[]);
+  renderTypes(s.attack_types||[]);
+  renderTrend();
+  renderFilters();
+  renderFeed();
+}
+function load(){
+  if(!LIVE_DATA){apply(makeDemo(),false,'Angka dibuat otomatis untuk contoh tampilan.');return;}
+  Promise.all([
+    fetch('data/summary.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}),
+    fetch('data/events.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+  ]).then(function(res){
+    apply({summary:res[0],events:res[1]},true,'');
+  }).catch(function(){
+    apply(makeDemo(),false,'Gagal memuat data/summary.json atau data/events.json, menampilkan contoh.');
+  });
+}
+
+/* ---------- Mulai ---------- */
+drawLand();
+$('#filters').addEventListener('click',function(e){
+  var b=e.target.closest('[data-f]');
+  if(!b) return;
+  filter=b.getAttribute('data-f');
+  renderFilters();renderFeed();
+});
+$('#copy').addEventListener('click',copyList);
+var rt;
+window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(renderTrend,120);});
+load();
+})();
+</script>
