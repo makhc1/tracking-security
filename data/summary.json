@@ -1,0 +1,297 @@
+{
+  "updated_at": "2026-11-14T19:28:05Z",
+  "defcon_level": 2,
+  "threat_status": "DEFCON 2 // THREAT ELEVATED",
+  "sources": [
+    "Cloudflare Radar (ID)",
+    "abuse.ch Feodo/ThreatFox",
+    "SANS DShield"
+  ],
+  "metrics": {
+    "mitigated_ddos_share_id": 68.4,
+    "active_ioc_count": 566,
+    "compromised_local_nodes": 19,
+    "peak_bps_index": 94.2,
+    "total_threat_actors": 1420
+  },
+  "top_attack_origins": [
+    {
+      "country": "CN",
+      "name": "China",
+      "count": 1940,
+      "share": 0.32
+    },
+    {
+      "country": "RU",
+      "name": "Russia",
+      "count": 1340,
+      "share": 0.22
+    },
+    {
+      "country": "US",
+      "name": "United States",
+      "count": 980,
+      "share": 0.16
+    },
+    {
+      "country": "BR",
+      "name": "Brazil",
+      "count": 620,
+      "share": 0.1
+    },
+    {
+      "country": "VN",
+      "name": "Vietnam",
+      "count": 480,
+      "share": 0.08
+    },
+    {
+      "country": "IN",
+      "name": "India",
+      "count": 310,
+      "share": 0.05
+    },
+    {
+      "country": "NL",
+      "name": "Netherlands",
+      "count": 220,
+      "share": 0.04
+    },
+    {
+      "country": "ID",
+      "name": "Indonesia (Domestic)",
+      "count": 190,
+      "share": 0.03
+    }
+  ],
+  "attack_types": [
+    {
+      "type": "SYN_FLOOD",
+      "label": "L3/4 SYN Flood",
+      "share": 0.38,
+      "count": 2350
+    },
+    {
+      "type": "HTTP_DDOS",
+      "label": "L7 HTTP Flood",
+      "share": 0.29,
+      "count": 1780
+    },
+    {
+      "type": "SSH_BRUTE",
+      "label": "SSH Brute-Force (Port 22)",
+      "share": 0.18,
+      "count": 1120
+    },
+    {
+      "type": "BOTNET_C2",
+      "label": "Feodo/Mirai Botnet C2",
+      "share": 0.15,
+      "count": 920
+    }
+  ],
+  "trend_24h": [
+    {
+      "ts": "2026-11-13T20:00:00Z",
+      "value": 189,
+      "hour": "20:00",
+      "intensity": 48
+    },
+    {
+      "ts": "2026-11-13T21:00:00Z",
+      "value": 160,
+      "hour": "21:00",
+      "intensity": 43
+    },
+    {
+      "ts": "2026-11-13T22:00:00Z",
+      "value": 161,
+      "hour": "22:00",
+      "intensity": 38
+    },
+    {
+      "ts": "2026-11-13T23:00:00Z",
+      "value": 148,
+      "hour": "23:00",
+      "intensity": 39
+    },
+    {
+      "ts": "2026-11-14T00:00:00Z",
+      "value": 155,
+      "hour": "00:00",
+      "intensity": 39
+    },
+    {
+      "ts": "2026-11-14T01:00:00Z",
+      "value": 197,
+      "hour": "01:00",
+      "intensity": 52
+    },
+    {
+      "ts": "2026-11-14T02:00:00Z",
+      "value": 272,
+      "hour": "02:00",
+      "intensity": 72
+    },
+    {
+      "ts": "2026-11-14T03:00:00Z",
+      "value": 300,
+      "hour": "03:00",
+      "intensity": 81
+    },
+    {
+      "ts": "2026-11-14T04:00:00Z",
+      "value": 345,
+      "hour": "04:00",
+      "intensity": 94
+    },
+    {
+      "ts": "2026-11-14T05:00:00Z",
+      "value": 360,
+      "hour": "05:00",
+      "intensity": 96
+    },
+    {
+      "ts": "2026-11-14T06:00:00Z",
+      "value": 366,
+      "hour": "06:00",
+      "intensity": 96
+    },
+    {
+      "ts": "2026-11-14T07:00:00Z",
+      "value": 354,
+      "hour": "07:00",
+      "intensity": 96
+    },
+    {
+      "ts": "2026-11-14T08:00:00Z",
+      "value": 311,
+      "hour": "08:00",
+      "intensity": 85
+    },
+    {
+      "ts": "2026-11-14T09:00:00Z",
+      "value": 300,
+      "hour": "09:00",
+      "intensity": 82
+    },
+    {
+      "ts": "2026-11-14T10:00:00Z",
+      "value": 306,
+      "hour": "10:00",
+      "intensity": 79
+    },
+    {
+      "ts": "2026-11-14T11:00:00Z",
+      "value": 320,
+      "hour": "11:00",
+      "intensity": 85
+    },
+    {
+      "ts": "2026-11-14T12:00:00Z",
+      "value": 336,
+      "hour": "12:00",
+      "intensity": 92
+    },
+    {
+      "ts": "2026-11-14T13:00:00Z",
+      "value": 360,
+      "hour": "13:00",
+      "intensity": 99
+    },
+    {
+      "ts": "2026-11-14T14:00:00Z",
+      "value": 358,
+      "hour": "14:00",
+      "intensity": 98
+    },
+    {
+      "ts": "2026-11-14T15:00:00Z",
+      "value": 355,
+      "hour": "15:00",
+      "intensity": 94
+    },
+    {
+      "ts": "2026-11-14T16:00:00Z",
+      "value": 308,
+      "hour": "16:00",
+      "intensity": 85
+    },
+    {
+      "ts": "2026-11-14T17:00:00Z",
+      "value": 274,
+      "hour": "17:00",
+      "intensity": 75
+    },
+    {
+      "ts": "2026-11-14T18:00:00Z",
+      "value": 246,
+      "hour": "18:00",
+      "intensity": 62
+    },
+    {
+      "ts": "2026-11-14T19:00:00Z",
+      "value": 228,
+      "hour": "19:00",
+      "intensity": 59
+    }
+  ],
+  "ixp_status": [
+    {
+      "code": "JKT-IXP",
+      "name": "Jakarta (IIX/OpenIXP)",
+      "status": "HEAVY_LOAD",
+      "pps_k": 480,
+      "threat_pct": 88
+    },
+    {
+      "code": "SUB-IXP",
+      "name": "Surabaya",
+      "status": "ELEVATED",
+      "pps_k": 210,
+      "threat_pct": 64
+    },
+    {
+      "code": "BTH-IXP",
+      "name": "Batam Hub",
+      "status": "GUARDED",
+      "pps_k": 145,
+      "threat_pct": 52
+    },
+    {
+      "code": "KNO-IXP",
+      "name": "Medan Gateway",
+      "status": "GUARDED",
+      "pps_k": 110,
+      "threat_pct": 45
+    },
+    {
+      "code": "UPG-IXP",
+      "name": "Makassar",
+      "status": "NORMAL",
+      "pps_k": 85,
+      "threat_pct": 32
+    },
+    {
+      "code": "DPS-IXP",
+      "name": "Denpasar",
+      "status": "NORMAL",
+      "pps_k": 65,
+      "threat_pct": 28
+    },
+    {
+      "code": "BPN-IXP",
+      "name": "Balikpapan (IKN)",
+      "status": "GUARDED",
+      "pps_k": 72,
+      "threat_pct": 41
+    },
+    {
+      "code": "DJJ-IXP",
+      "name": "Jayapura",
+      "status": "NORMAL",
+      "pps_k": 38,
+      "threat_pct": 19
+    }
+  ]
+}

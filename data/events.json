@@ -1,0 +1,1852 @@
+[
+  {
+    "id": "EVT-3624",
+    "ts": "2026-11-14T19:27:23Z",
+    "ip": "116.14.88.49",
+    "asn": "AS4657",
+    "org": "StarHub Internet",
+    "country": "SG",
+    "type": "HTTP_DDOS",
+    "abuse_score": 74,
+    "origin": {
+      "country": "SG",
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 158.3,
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "HTTP_DDOS",
+      "protocol": "HTTP/80",
+      "severity": "HIGH",
+      "label": "L7 HTTP Flood",
+      "abuse_score": 74
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2264",
+    "ts": "2026-11-14T19:27:09Z",
+    "ip": "203.116.1.239",
+    "asn": "AS4657",
+    "org": "StarHub Internet",
+    "country": "SG",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 70,
+    "origin": {
+      "country": "SG",
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 134.1,
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "SUB-IXP",
+      "city": "Surabaya (East Java IXP)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 70
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-6290",
+    "ts": "2026-11-14T19:26:23Z",
+    "ip": "89.248.165.66",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "SYN_FLOOD",
+    "abuse_score": 89,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 84.3,
+      "lat": 0.5978,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 89
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-5792",
+    "ts": "2026-11-14T19:26:06Z",
+    "ip": "185.156.73.192",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 81,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 84.3,
+      "lat": 0.5978,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 81
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-7791",
+    "ts": "2026-11-14T19:25:58Z",
+    "ip": "187.111.45.18",
+    "asn": "AS28573",
+    "org": "Claro NXT Telecom",
+    "country": "BR",
+    "type": "SYN_FLOOD",
+    "abuse_score": 97,
+    "origin": {
+      "country": "BR",
+      "name": "Brazil",
+      "lat": -23.5505,
+      "lng": -46.6333
+    },
+    "perimeter_entry": {
+      "sector": "WEST PERIMETER",
+      "azimuth_deg": 135.7,
+      "lat": -7.5472,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 97
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-8606",
+    "ts": "2026-11-14T19:23:16Z",
+    "ip": "185.220.101.200",
+    "asn": "AS205100",
+    "org": "F3 Netze e.V.",
+    "country": "RU",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 84,
+    "origin": {
+      "country": "RU",
+      "name": "Russia",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 110.8,
+      "lat": 4.3939,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 84
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2843",
+    "ts": "2026-11-14T19:22:53Z",
+    "ip": "177.18.204.200",
+    "asn": "AS28573",
+    "org": "Claro NXT Telecom",
+    "country": "BR",
+    "type": "SSH_BRUTE",
+    "abuse_score": 67,
+    "origin": {
+      "country": "BR",
+      "name": "Brazil",
+      "lat": -23.5505,
+      "lng": -46.6333
+    },
+    "perimeter_entry": {
+      "sector": "WEST PERIMETER",
+      "azimuth_deg": 152.9,
+      "lat": -7.8552,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "UPG-IXP",
+      "city": "Makassar (Eastern Backbone)",
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "attack": {
+      "type": "SSH_BRUTE",
+      "protocol": "TCP/22",
+      "severity": "MEDIUM",
+      "label": "SSH Brute-Force",
+      "abuse_score": 67
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-3108",
+    "ts": "2026-11-14T19:22:51Z",
+    "ip": "49.36.12.147",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "UDP_AMP",
+    "abuse_score": 99,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 123.8,
+      "lat": 2.6087,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "UDP_AMP",
+      "protocol": "UDP/53",
+      "severity": "CRITICAL",
+      "label": "DNS Amplification",
+      "abuse_score": 99
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-5028",
+    "ts": "2026-11-14T19:22:19Z",
+    "ip": "91.99.102.173",
+    "asn": "AS58224",
+    "org": "TIC Infrastructure",
+    "country": "IR",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 93,
+    "origin": {
+      "country": "IR",
+      "name": "Iran",
+      "lat": 35.6892,
+      "lng": 51.389
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 113.6,
+      "lat": 5.1668,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "SUB-IXP",
+      "city": "Surabaya (East Java IXP)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 93
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-8891",
+    "ts": "2026-11-14T19:21:51Z",
+    "ip": "115.79.136.178",
+    "asn": "AS7552",
+    "org": "Viettel Group",
+    "country": "VN",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 72,
+    "origin": {
+      "country": "VN",
+      "name": "Vietnam",
+      "lat": 21.0285,
+      "lng": 105.8542
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 185.3,
+      "lat": 6.5,
+      "lng": 104.539,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "BTH-IXP",
+      "city": "Batam (Cross-Border Hub)",
+      "lat": 1.1301,
+      "lng": 104.0529
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 72
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-8274",
+    "ts": "2026-11-14T19:21:36Z",
+    "ip": "180.252.160.14",
+    "asn": "AS7713",
+    "org": "PT Telekomunikasi Indonesia",
+    "country": "ID",
+    "type": "HTTP_DDOS",
+    "abuse_score": 82,
+    "origin": {
+      "country": "ID",
+      "name": "Indonesia (Compromised Host)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 320.0,
+      "lat": -6.2088,
+      "lng": 106.8456,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "KNO-IXP",
+      "city": "Medan (Sumatra Gateway)",
+      "lat": 3.5952,
+      "lng": 98.6722
+    },
+    "attack": {
+      "type": "HTTP_DDOS",
+      "protocol": "HTTP/80",
+      "severity": "HIGH",
+      "label": "L7 HTTP Flood",
+      "abuse_score": 82
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-9815",
+    "ts": "2026-11-14T19:20:49Z",
+    "ip": "45.154.255.157",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "SSH_BRUTE",
+    "abuse_score": 80,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 84.3,
+      "lat": 0.5978,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SSH_BRUTE",
+      "protocol": "TCP/22",
+      "severity": "MEDIUM",
+      "label": "SSH Brute-Force",
+      "abuse_score": 80
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-1334",
+    "ts": "2026-11-14T19:20:36Z",
+    "ip": "185.220.101.161",
+    "asn": "AS205100",
+    "org": "F3 Netze e.V.",
+    "country": "RU",
+    "type": "SYN_FLOOD",
+    "abuse_score": 93,
+    "origin": {
+      "country": "RU",
+      "name": "Russia",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 110.8,
+      "lat": 4.3939,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 93
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-1285",
+    "ts": "2026-11-14T19:19:49Z",
+    "ip": "103.247.20.5",
+    "asn": "AS17974",
+    "org": "PT Telkom Data Ekosistem",
+    "country": "ID",
+    "type": "SYN_FLOOD",
+    "abuse_score": 98,
+    "origin": {
+      "country": "ID",
+      "name": "Indonesia (Compromised Host)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 120.3,
+      "lat": -7.2575,
+      "lng": 112.7521,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "DPS-IXP",
+      "city": "Denpasar (Bali/NT Gateway)",
+      "lat": -8.6705,
+      "lng": 115.2126
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 98
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2943",
+    "ts": "2026-11-14T19:19:31Z",
+    "ip": "185.156.73.182",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 100,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 80.2,
+      "lat": 2.557,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "SUB-IXP",
+      "city": "Surabaya (East Java IXP)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 100
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-9651",
+    "ts": "2026-11-14T19:18:34Z",
+    "ip": "222.186.30.163",
+    "asn": "AS4134",
+    "org": "CHINANET-BACKBONE",
+    "country": "CN",
+    "type": "BOTNET_C2",
+    "abuse_score": 76,
+    "origin": {
+      "country": "CN",
+      "name": "China",
+      "lat": 31.2304,
+      "lng": 121.4737
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 222.4,
+      "lat": 6.5,
+      "lng": 101.0689,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "KNO-IXP",
+      "city": "Medan (Sumatra Gateway)",
+      "lat": 3.5952,
+      "lng": 98.6722
+    },
+    "attack": {
+      "type": "BOTNET_C2",
+      "protocol": "TCP/8080",
+      "severity": "HIGH",
+      "label": "Botnet Command & Control",
+      "abuse_score": 76
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-9152",
+    "ts": "2026-11-14T19:16:22Z",
+    "ip": "203.116.1.201",
+    "asn": "AS4657",
+    "org": "StarHub Internet",
+    "country": "SG",
+    "type": "SYN_FLOOD",
+    "abuse_score": 94,
+    "origin": {
+      "country": "SG",
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 158.3,
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 94
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2182",
+    "ts": "2026-11-14T19:16:11Z",
+    "ip": "185.220.101.232",
+    "asn": "AS205100",
+    "org": "F3 Netze e.V.",
+    "country": "RU",
+    "type": "BOTNET_C2",
+    "abuse_score": 75,
+    "origin": {
+      "country": "RU",
+      "name": "Russia",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 110.8,
+      "lat": 4.3939,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "BOTNET_C2",
+      "protocol": "TCP/8080",
+      "severity": "HIGH",
+      "label": "Botnet Command & Control",
+      "abuse_score": 75
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-8855",
+    "ts": "2026-11-14T19:15:40Z",
+    "ip": "193.106.191.243",
+    "asn": "AS205100",
+    "org": "F3 Netze e.V.",
+    "country": "RU",
+    "type": "HTTP_DDOS",
+    "abuse_score": 65,
+    "origin": {
+      "country": "RU",
+      "name": "Russia",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 99.7,
+      "lat": 6.5,
+      "lng": 103.7856,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "UPG-IXP",
+      "city": "Makassar (Eastern Backbone)",
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "attack": {
+      "type": "HTTP_DDOS",
+      "protocol": "HTTP/80",
+      "severity": "HIGH",
+      "label": "L7 HTTP Flood",
+      "abuse_score": 65
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-5345",
+    "ts": "2026-11-14T19:15:28Z",
+    "ip": "91.99.102.156",
+    "asn": "AS58224",
+    "org": "TIC Infrastructure",
+    "country": "IR",
+    "type": "BOTNET_C2",
+    "abuse_score": 66,
+    "origin": {
+      "country": "IR",
+      "name": "Iran",
+      "lat": 35.6892,
+      "lng": 51.389
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 117.0,
+      "lat": 2.7407,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "BOTNET_C2",
+      "protocol": "TCP/8080",
+      "severity": "HIGH",
+      "label": "Botnet Command & Control",
+      "abuse_score": 66
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-7767",
+    "ts": "2026-11-14T19:15:08Z",
+    "ip": "171.244.11.106",
+    "asn": "AS7552",
+    "org": "Viettel Group",
+    "country": "VN",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 70,
+    "origin": {
+      "country": "VN",
+      "name": "Vietnam",
+      "lat": 21.0285,
+      "lng": 105.8542
+    },
+    "perimeter_entry": {
+      "sector": "NORTH PERIMETER",
+      "azimuth_deg": 177.8,
+      "lat": 6.5,
+      "lng": 106.383,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 70
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-4275",
+    "ts": "2026-11-14T19:14:07Z",
+    "ip": "117.211.90.185",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 87,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 120.1,
+      "lat": 4.4662,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "SUB-IXP",
+      "city": "Surabaya (East Java IXP)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 87
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-6525",
+    "ts": "2026-11-14T19:13:53Z",
+    "ip": "193.106.191.211",
+    "asn": "AS205100",
+    "org": "F3 Netze e.V.",
+    "country": "RU",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 88,
+    "origin": {
+      "country": "RU",
+      "name": "Russia",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 110.8,
+      "lat": 4.3939,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 88
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2446",
+    "ts": "2026-11-14T19:13:12Z",
+    "ip": "89.248.165.44",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "BOTNET_C2",
+    "abuse_score": 74,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 79.0,
+      "lat": 2.5139,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "DPS-IXP",
+      "city": "Denpasar (Bali/NT Gateway)",
+      "lat": -8.6705,
+      "lng": 115.2126
+    },
+    "attack": {
+      "type": "BOTNET_C2",
+      "protocol": "TCP/8080",
+      "severity": "HIGH",
+      "label": "Botnet Command & Control",
+      "abuse_score": 74
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-1155",
+    "ts": "2026-11-14T19:12:28Z",
+    "ip": "180.252.160.14",
+    "asn": "AS7713",
+    "org": "PT Telekomunikasi Indonesia",
+    "country": "ID",
+    "type": "BOTNET_C2",
+    "abuse_score": 84,
+    "origin": {
+      "country": "ID",
+      "name": "Indonesia (Compromised Host)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 0.0,
+      "lat": -6.2088,
+      "lng": 106.8456,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "BOTNET_C2",
+      "protocol": "TCP/8080",
+      "severity": "HIGH",
+      "label": "Botnet Command & Control",
+      "abuse_score": 84
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-7529",
+    "ts": "2026-11-14T19:11:35Z",
+    "ip": "203.116.1.196",
+    "asn": "AS4657",
+    "org": "StarHub Internet",
+    "country": "SG",
+    "type": "SYN_FLOOD",
+    "abuse_score": 90,
+    "origin": {
+      "country": "SG",
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 158.3,
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 90
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-3771",
+    "ts": "2026-11-14T19:11:03Z",
+    "ip": "203.116.1.29",
+    "asn": "AS4657",
+    "org": "StarHub Internet",
+    "country": "SG",
+    "type": "SYN_FLOOD",
+    "abuse_score": 84,
+    "origin": {
+      "country": "SG",
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 133.6,
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "BTH-IXP",
+      "city": "Batam (Cross-Border Hub)",
+      "lat": 1.1301,
+      "lng": 104.0529
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 84
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-1938",
+    "ts": "2026-11-14T19:11:01Z",
+    "ip": "103.119.144.12",
+    "asn": "AS17974",
+    "org": "PT Telkom Data Ekosistem",
+    "country": "ID",
+    "type": "HTTP_DDOS",
+    "abuse_score": 78,
+    "origin": {
+      "country": "ID",
+      "name": "Indonesia (Compromised Host)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 279.8,
+      "lat": -7.2575,
+      "lng": 112.7521,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "HTTP_DDOS",
+      "protocol": "HTTP/80",
+      "severity": "HIGH",
+      "label": "L7 HTTP Flood",
+      "abuse_score": 78
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-6025",
+    "ts": "2026-11-14T19:10:46Z",
+    "ip": "103.119.144.12",
+    "asn": "AS17974",
+    "org": "PT Telkom Data Ekosistem",
+    "country": "ID",
+    "type": "SYN_FLOOD",
+    "abuse_score": 90,
+    "origin": {
+      "country": "ID",
+      "name": "Indonesia (Compromised Host)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 120.3,
+      "lat": -7.2575,
+      "lng": 112.7521,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "DPS-IXP",
+      "city": "Denpasar (Bali/NT Gateway)",
+      "lat": -8.6705,
+      "lng": 115.2126
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 90
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-7626",
+    "ts": "2026-11-14T19:09:51Z",
+    "ip": "49.36.12.252",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 88,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 118.4,
+      "lat": 5.7991,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "KNO-IXP",
+      "city": "Medan (Sumatra Gateway)",
+      "lat": 3.5952,
+      "lng": 98.6722
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 88
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-4681",
+    "ts": "2026-11-14T19:09:06Z",
+    "ip": "185.156.73.79",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 73,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 73.3,
+      "lat": 6.5,
+      "lng": 96.239,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "UPG-IXP",
+      "city": "Makassar (Eastern Backbone)",
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 73
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-8448",
+    "ts": "2026-11-14T19:09:04Z",
+    "ip": "89.248.165.131",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 95,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 82.0,
+      "lat": 5.8084,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "BTH-IXP",
+      "city": "Batam (Cross-Border Hub)",
+      "lat": 1.1301,
+      "lng": 104.0529
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 95
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2088",
+    "ts": "2026-11-14T19:06:33Z",
+    "ip": "185.220.101.221",
+    "asn": "AS205100",
+    "org": "F3 Netze e.V.",
+    "country": "RU",
+    "type": "SSH_BRUTE",
+    "abuse_score": 74,
+    "origin": {
+      "country": "RU",
+      "name": "Russia",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 106.4,
+      "lat": 6.5,
+      "lng": 96.3482,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "SUB-IXP",
+      "city": "Surabaya (East Java IXP)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "attack": {
+      "type": "SSH_BRUTE",
+      "protocol": "TCP/22",
+      "severity": "MEDIUM",
+      "label": "SSH Brute-Force",
+      "abuse_score": 74
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-1142",
+    "ts": "2026-11-14T19:06:15Z",
+    "ip": "103.247.20.5",
+    "asn": "AS17974",
+    "org": "PT Telkom Data Ekosistem",
+    "country": "ID",
+    "type": "UDP_AMP",
+    "abuse_score": 93,
+    "origin": {
+      "country": "ID",
+      "name": "Indonesia (Compromised Host)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 279.8,
+      "lat": -7.2575,
+      "lng": 112.7521,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "UDP_AMP",
+      "protocol": "UDP/53",
+      "severity": "CRITICAL",
+      "label": "DNS Amplification",
+      "abuse_score": 93
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-9021",
+    "ts": "2026-11-14T19:05:13Z",
+    "ip": "157.34.80.57",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 99,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 118.4,
+      "lat": 5.7991,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "KNO-IXP",
+      "city": "Medan (Sumatra Gateway)",
+      "lat": 3.5952,
+      "lng": 98.6722
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 99
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-9648",
+    "ts": "2026-11-14T19:04:56Z",
+    "ip": "157.34.80.108",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 78,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 123.8,
+      "lat": 2.6087,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 78
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-6036",
+    "ts": "2026-11-14T19:04:28Z",
+    "ip": "110.138.99.20",
+    "asn": "AS7713",
+    "org": "PT Telekomunikasi Indonesia",
+    "country": "ID",
+    "type": "SMB_EXPLOIT",
+    "abuse_score": 90,
+    "origin": {
+      "country": "ID",
+      "name": "Indonesia (Compromised Host)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 0.0,
+      "lat": -6.2088,
+      "lng": 106.8456,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SMB_EXPLOIT",
+      "protocol": "TCP/445",
+      "severity": "CRITICAL",
+      "label": "EternalBlue/SMB Probe",
+      "abuse_score": 90
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-3640",
+    "ts": "2026-11-14T19:04:14Z",
+    "ip": "180.118.247.140",
+    "asn": "AS4134",
+    "org": "CHINANET-BACKBONE",
+    "country": "CN",
+    "type": "UDP_AMP",
+    "abuse_score": 87,
+    "origin": {
+      "country": "CN",
+      "name": "China",
+      "lat": 31.2304,
+      "lng": 121.4737
+    },
+    "perimeter_entry": {
+      "sector": "NORTH PERIMETER",
+      "azimuth_deg": 203.0,
+      "lat": 6.5,
+      "lng": 111.8111,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "UDP_AMP",
+      "protocol": "UDP/53",
+      "severity": "CRITICAL",
+      "label": "DNS Amplification",
+      "abuse_score": 87
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2485",
+    "ts": "2026-11-14T19:04:09Z",
+    "ip": "115.79.136.92",
+    "asn": "AS7552",
+    "org": "Viettel Group",
+    "country": "VN",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 70,
+    "origin": {
+      "country": "VN",
+      "name": "Vietnam",
+      "lat": 21.0285,
+      "lng": 105.8542
+    },
+    "perimeter_entry": {
+      "sector": "NORTH PERIMETER",
+      "azimuth_deg": 177.8,
+      "lat": 6.5,
+      "lng": 106.383,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 70
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-9376",
+    "ts": "2026-11-14T19:04:03Z",
+    "ip": "185.220.101.63",
+    "asn": "AS205100",
+    "org": "F3 Netze e.V.",
+    "country": "RU",
+    "type": "SYN_FLOOD",
+    "abuse_score": 83,
+    "origin": {
+      "country": "RU",
+      "name": "Russia",
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 110.8,
+      "lat": 4.3939,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 83
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-5346",
+    "ts": "2026-11-14T19:03:49Z",
+    "ip": "116.14.88.109",
+    "asn": "AS4657",
+    "org": "StarHub Internet",
+    "country": "SG",
+    "type": "SYN_FLOOD",
+    "abuse_score": 84,
+    "origin": {
+      "country": "SG",
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 158.3,
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 84
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-4834",
+    "ts": "2026-11-14T19:03:12Z",
+    "ip": "89.248.165.167",
+    "asn": "AS60781",
+    "org": "LeaseWeb Netherlands",
+    "country": "NL",
+    "type": "SYN_FLOOD",
+    "abuse_score": 90,
+    "origin": {
+      "country": "NL",
+      "name": "Netherlands",
+      "lat": 52.3676,
+      "lng": 4.9041
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 84.3,
+      "lat": 0.5978,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SYN_FLOOD",
+      "protocol": "TCP/443",
+      "severity": "CRITICAL",
+      "label": "L3/4 SYN Flood",
+      "abuse_score": 90
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-1092",
+    "ts": "2026-11-14T19:02:34Z",
+    "ip": "187.111.45.142",
+    "asn": "AS28573",
+    "org": "Claro NXT Telecom",
+    "country": "BR",
+    "type": "HTTP_DDOS",
+    "abuse_score": 72,
+    "origin": {
+      "country": "BR",
+      "name": "Brazil",
+      "lat": -23.5505,
+      "lng": -46.6333
+    },
+    "perimeter_entry": {
+      "sector": "WEST PERIMETER",
+      "azimuth_deg": 124.0,
+      "lat": -0.3527,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "BTH-IXP",
+      "city": "Batam (Cross-Border Hub)",
+      "lat": 1.1301,
+      "lng": 104.0529
+    },
+    "attack": {
+      "type": "HTTP_DDOS",
+      "protocol": "HTTP/80",
+      "severity": "HIGH",
+      "label": "L7 HTTP Flood",
+      "abuse_score": 72
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-7608",
+    "ts": "2026-11-14T19:02:00Z",
+    "ip": "117.211.90.159",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "UDP_AMP",
+    "abuse_score": 95,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 120.1,
+      "lat": 4.4662,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "SUB-IXP",
+      "city": "Surabaya (East Java IXP)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "attack": {
+      "type": "UDP_AMP",
+      "protocol": "UDP/53",
+      "severity": "CRITICAL",
+      "label": "DNS Amplification",
+      "abuse_score": 95
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-4854",
+    "ts": "2026-11-14T19:01:36Z",
+    "ip": "116.14.88.175",
+    "asn": "AS4657",
+    "org": "StarHub Internet",
+    "country": "SG",
+    "type": "UDP_AMP",
+    "abuse_score": 96,
+    "origin": {
+      "country": "SG",
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lng": 103.8198
+    },
+    "perimeter_entry": {
+      "sector": "DOMESTIC AIRSPACE",
+      "azimuth_deg": 112.7,
+      "lat": 1.3521,
+      "lng": 103.8198,
+      "is_domestic": true
+    },
+    "target": {
+      "code": "UPG-IXP",
+      "city": "Makassar (Eastern Backbone)",
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "attack": {
+      "type": "UDP_AMP",
+      "protocol": "UDP/53",
+      "severity": "CRITICAL",
+      "label": "DNS Amplification",
+      "abuse_score": 96
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-8206",
+    "ts": "2026-11-14T19:00:39Z",
+    "ip": "165.227.12.16",
+    "asn": "AS14061",
+    "org": "DigitalOcean LLC",
+    "country": "US",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 77,
+    "origin": {
+      "country": "US",
+      "name": "United States",
+      "lat": 40.7128,
+      "lng": -74.006
+    },
+    "perimeter_entry": {
+      "sector": "WEST PERIMETER",
+      "azimuth_deg": 358.5,
+      "lat": -3.1355,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 77
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-2909",
+    "ts": "2026-11-14T19:00:31Z",
+    "ip": "117.211.90.25",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "BOTNET_C2",
+    "abuse_score": 74,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 123.8,
+      "lat": 2.6087,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "BOTNET_C2",
+      "protocol": "TCP/8080",
+      "severity": "HIGH",
+      "label": "Botnet Command & Control",
+      "abuse_score": 74
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-6223",
+    "ts": "2026-11-14T19:00:23Z",
+    "ip": "5.200.14.149",
+    "asn": "AS58224",
+    "org": "TIC Infrastructure",
+    "country": "IR",
+    "type": "SSH_BRUTE",
+    "abuse_score": 78,
+    "origin": {
+      "country": "IR",
+      "name": "Iran",
+      "lat": 35.6892,
+      "lng": 51.389
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 117.0,
+      "lat": 2.7407,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "JKT-IXP",
+      "city": "Jakarta (IIX/OpenIXP)",
+      "lat": -6.2088,
+      "lng": 106.8456
+    },
+    "attack": {
+      "type": "SSH_BRUTE",
+      "protocol": "TCP/22",
+      "severity": "MEDIUM",
+      "label": "SSH Brute-Force",
+      "abuse_score": 78
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-6003",
+    "ts": "2026-11-14T19:00:17Z",
+    "ip": "157.34.80.146",
+    "asn": "AS55836",
+    "org": "Reliance Jio",
+    "country": "IN",
+    "type": "MIRAI_SCAN",
+    "abuse_score": 73,
+    "origin": {
+      "country": "IN",
+      "name": "India",
+      "lat": 19.076,
+      "lng": 72.8777
+    },
+    "perimeter_entry": {
+      "sector": "NORTH-WEST PERIMETER",
+      "azimuth_deg": 120.1,
+      "lat": 4.4662,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "SUB-IXP",
+      "city": "Surabaya (East Java IXP)",
+      "lat": -7.2575,
+      "lng": 112.7521
+    },
+    "attack": {
+      "type": "MIRAI_SCAN",
+      "protocol": "TCP/23",
+      "severity": "HIGH",
+      "label": "Telnet Mirai Scanner",
+      "abuse_score": 73
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  },
+  {
+    "id": "EVT-9097",
+    "ts": "2026-11-14T18:58:57Z",
+    "ip": "177.18.204.216",
+    "asn": "AS28573",
+    "org": "Claro NXT Telecom",
+    "country": "BR",
+    "type": "UDP_AMP",
+    "abuse_score": 100,
+    "origin": {
+      "country": "BR",
+      "name": "Brazil",
+      "lat": -23.5505,
+      "lng": -46.6333
+    },
+    "perimeter_entry": {
+      "sector": "WEST PERIMETER",
+      "azimuth_deg": 152.9,
+      "lat": -7.8552,
+      "lng": 95.0,
+      "is_domestic": false
+    },
+    "target": {
+      "code": "UPG-IXP",
+      "city": "Makassar (Eastern Backbone)",
+      "lat": -5.1477,
+      "lng": 119.4327
+    },
+    "attack": {
+      "type": "UDP_AMP",
+      "protocol": "UDP/53",
+      "severity": "CRITICAL",
+      "label": "DNS Amplification",
+      "abuse_score": 100
+    },
+    "source": "abuse.ch / SANS DShield / CF-Radar"
+  }
+]
